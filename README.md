@@ -25,7 +25,7 @@
 
 ## 怎么用
 
-1. 把本文件夹放到 WorkBuddy 技能目录（见下方安装），或克隆本仓库。
+1. 克隆 / 复制本仓库到你的 AI 助手的技能目录（见下方安装），或直接把 `SKILL.md` 作为自定义指令导入。
 2. **直接开口说话就行**——不用选模式、不用填表。技能会根据你说的话自动路由到合适的模式。
 3. 它会在"陪伴"和"指导"之间动态切换：浅层只陪你聊，捕捉到天赋信号且你主动问"具体怎么做"时，才给行动建议。
 
@@ -39,12 +39,33 @@
 
 ## 安装
 
+本技能是一套遵循 `SKILL.md` 约定的纯提示词 + Markdown 文件，**不依赖任何代码运行环境**。只要你的 AI 助手支持「从目录加载技能 / 指令」，都可以使用——不限于某一款产品。
+
+### 方式一：放到 AI 助手的技能目录（推荐，可自动识别调用）
+
+把整个 `life-coach` 文件夹放到你所用助手的「用户级技能目录」下，刷新 / 重启后即可被识别并按模式调用。常见助手的技能目录：
+
+| 助手 | 技能目录 |
+|------|---------|
+| WorkBuddy | `~/.workbuddy/skills/` |
+| Claude Code | `~/.claude/skills/`（或项目级 `.claude/skills/`） |
+| 其他兼容 `SKILL.md` 约定的 Agent | 查阅对应助手的 skills / 指令文档 |
+
 ```bash
-# 方式一：克隆到用户级技能目录
+# 克隆到任意助手的 skills 目录（示例为 WorkBuddy）
 git clone https://github.com/piepiepie/life-coach.git ~/.workbuddy/skills/life-coach
 
-# 方式二：直接复制文件夹
-cp -r life-coach ~/.workbuddy/skills/life-coach
+# 或克隆到你使用的其他助手的 skills 目录
+```
+
+### 方式二：作为自定义指令 / System Prompt 导入（最通用）
+
+不依赖任何特定平台——把 `SKILL.md` 全文作为「自定义指令 / 系统提示词 / 项目规则 / 记忆」粘贴进**任何**支持该功能的 AI 助手（如 Claude、ChatGPT、Cursor、Gemini、本地模型等），它就会按里面的模式与流程工作。适合不想折腾目录结构的场景。
+
+### 方式三：手动复制文件夹
+
+```bash
+cp -r life-coach /path/to/your-agent/skills/life-coach
 ```
 
 > 纯提示词 + Markdown，无外部依赖、可离线运行。市场数据校验为可选增强，无联网时自动降级。
