@@ -4,3 +4,6 @@
 # Editor
 *.swp
 *~
+
+# Changelog（按用户要求：不纳入仓库、永不推送）
+CHANGELOG*.md
